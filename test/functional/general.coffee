@@ -6,45 +6,42 @@ exports.test = ( pivot ) ->
   foofunk  = ->
   listener = {}
 
-  describe '[testing pivot]', ->
+  describe '[key-> value storage]', ->
 
-    describe '[key-> value storage]', ->
+    it 'it should store a value', (done)->
 
-      it 'it should store a value', (done)->
+        pivot.set 'key', 'value'
+        done()
 
-          pivot.set 'key', 'value'
+    it 'it should retrieve a value', (done)->
 
-          done()
+        (pivot.get 'key').should.equal 'value'
 
-      it 'it should retrieve a value', (done)->
+        done()
 
-          (pivot.get 'key').should.equal 'value'
+  describe '[event system]', ->
 
-          done()
+    it 'it should register an event', (done) ->
 
-    describe '[event system]', ->
+        pivot.on 'event', ->
+        done()
 
-      it 'it should register an event', (done) ->
+    it 'it should propagate an event', (done)->
 
-          pivot.on 'event', ->
-          done()
+        pivot.on 'changed:name', foofunk
+        pivot.on 'changed:name', -> done()
 
-      it 'it should propagate an event', (done)->
+        pivot.trigger 'changed:name', 'foo'
 
-          pivot.on 'changed:name', foofunk
-          pivot.on 'changed:name', -> done()
+    it 'it should unregister event', (done)->
 
-          pivot.trigger 'changed:name', 'foo'
+        pivot.off( 'changed:name', foofunk ).should.equal true
 
-      it 'it should unregister event', (done)->
-
-          pivot.off( 'changed:name', foofunk ).should.equal true
-
-          done()
+        done()
 
 
-    # describe '[include/extend]', ->
+  # describe '[include/extend]', ->
 
-    #   it 'i should write this test', (done)->
-    #       # should.not.exist err
-    #       done()
+  #   it 'i should write this test', (done)->
+  #       # should.not.exist err
+  #       done()
