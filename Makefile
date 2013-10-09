@@ -2,6 +2,9 @@ POLVO=node_modules/polvo/bin/polvo
 CS=node_modules/coffee-script/bin/coffee
 MOCHA=node_modules/mocha/bin/mocha
 
+MVERSION=node_modules/mversion/bin/version
+VERSION=`$(MVERSION) | sed -E 's/\* package.json: //g'`
+
 setup:
 	npm install
 	bower install
