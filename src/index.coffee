@@ -10,7 +10,7 @@ module.exports = class Pivot
 
   _events: null
 
-  do_init: ( event ) ->
+  _do_init: ( event ) ->
     @_events          ?= {}
     @_events[ event ] ?= { listeners: [], value: null }
 
@@ -18,7 +18,7 @@ module.exports = class Pivot
   # 
   # Returns a PivotItem ( listener )
   on: ( event, funk, bind = off ) ->
-    @do_init event
+    @_do_init event
 
     listener       = new Item @
     listener.event = event
@@ -79,7 +79,7 @@ module.exports = class Pivot
 
   # "Dispatch" the event to all listeners
   trigger: ( event, value ) ->
-    @do_init event
+    @_do_init event
 
     @_events[ event ].value = value
 
