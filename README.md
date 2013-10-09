@@ -15,16 +15,20 @@ Simple event system and key->value storage
  2. Simple key-> value storage
 
 
-#
-### Propagating events, storing and retrieving data
-#
-
 ```
+
+# create an instance of pivot
+
 Pivot = require 'app/components/events/pivot'
 
 pivot = new Pivot
 
-listener = pivot.on 'name', ( name ) -> console.log name
+# Store and Retrieve a value
+
+pivot.set 'name', 'foo'
+pivot.get 'name' 			# should be foo
+
+# Listening to an event
 
 pivot.set 'name', 'hems'      # will set name to hems and propagate
 

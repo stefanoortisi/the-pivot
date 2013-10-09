@@ -5,26 +5,30 @@ exports.test = ( pivot ) ->
 
   describe '[general]', ->
 
-    describe '[setup]', ->
-      it 'i should write this test', (done)->
-          # should.not.exist err
-          done()
-
-
-    describe '[event system]', ->
-
-      it 'i should write this test', (done)->
-          # should.not.exist err
-          done()
-
     describe '[key-> value storage]', ->
 
-      it 'i should write this test', (done)->
-          # should.not.exist err
+      it 'it should store a value', (done)->
+
+          pivot.set 'key', 'value'
+
           done()
 
-    describe '[include/extend]', ->
+      it 'it should retrieve a value', (done)->
 
-      it 'i should write this test', (done)->
-          # should.not.exist err
+          (pivot.get 'key').should.equal 'value'
+
           done()
+
+    # describe '[event system]', ->
+
+    #   it 'i should write this test', (done)->
+    #       # should.not.exist err
+    #       done()
+
+
+
+    # describe '[include/extend]', ->
+
+    #   it 'i should write this test', (done)->
+    #       # should.not.exist err
+    #       done()

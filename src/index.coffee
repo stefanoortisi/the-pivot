@@ -63,6 +63,7 @@ module.exports = class Pivot
   # If the value is different from previously set value, trigger method
   # will be called
   set: ( event, value ) ->
+    @_do_init event
 
     if @_events[ event ]?
       return value if @_events[ event ].value == value
