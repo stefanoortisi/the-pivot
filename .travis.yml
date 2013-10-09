@@ -8,4 +8,7 @@ node:
 before_script:
 
 script:
-  - make test
+  - make test.travis
+
+before_script:
+  - make test.coveralls

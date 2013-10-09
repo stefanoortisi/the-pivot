@@ -2,8 +2,10 @@ POLVO=node_modules/polvo/bin/polvo
 CS=node_modules/coffee-script/bin/coffee
 MOCHA=node_modules/mocha/bin/mocha
 
+COVERALLS=node_modules/coveralls/bin/coveralls.js
+
 MVERSION=node_modules/mversion/bin/version
-VERSION=`$(MVERSION) | sed -E 's/\* package.json: //g'`
+VERSION=0.1.2
 
 setup:
 	npm install

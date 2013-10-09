@@ -1,6 +1,6 @@
 {
   "name": "the-pivot",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "author": "Henrique Matias <hems.inlet@gmail.com>",
   "contributors": [
     "Anderson Arboleya <anderson@arboleya.me>",
@@ -31,6 +31,7 @@
     "fs-util": "0.3.x",
     "coffee-script": "1.6.x",
     "polvo": "0.5.x",
-    "mversion": "0.2.0"
+    "mversion": "0.2.0",
+    "coveralls": "2.2.x"
   }
 }
