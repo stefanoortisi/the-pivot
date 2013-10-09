@@ -36,7 +36,7 @@ exports.test = ( pivot ) ->
 
           pivot.trigger 'changed:name', 'foo'
 
-      it 'unregister event', (done)->
+      it 'it should unregister event', (done)->
 
           pivot.off( 'changed:name', foofunk ).should.equal true
 

@@ -11,9 +11,14 @@ Simple event system and key->value storage
 
 ## Main concept
 
- 1. Simple event dispatcher / listener
- 2. Simple key-> value storage
+ 1. Simple event system
+  - on( 'event', funktion )  # adds a listener
+  - off( 'event', funktion ) # removes a listener
+  - trigger( {} )            # triggers the listeners passing {} as argument
 
+ 2. Simple key-> value storage
+  - set( 'key', 'value' )    # stores a 'value'
+  - get( 'key' )             # retrieves a 'value'
 
 ```
 
