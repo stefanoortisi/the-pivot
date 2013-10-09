@@ -1,7 +1,7 @@
 fsu  = require 'fs-util'
 path = require 'path'
 
-Pivot = require 'pivot'
+Pivot = require '../lib/pivot'
 
 # list of test files
 files = fsu.find (path.join __dirname, 'functional'), /\.coffee$/m

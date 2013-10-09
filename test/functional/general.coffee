@@ -5,31 +5,26 @@ exports.test = ( pivot ) ->
 
   describe '[general]', ->
 
-    describe '[configuring]', ->
-      it 'should raise async timeout limit for execute method', (done)->
-        browser.setAsyncScriptTimeout 5000, (err)->
-          should.not.exist err
+    describe '[setup]', ->
+      it 'i should write this test', (done)->
+          # should.not.exist err
           done()
 
-    describe '[api]', ->
 
-        it '[CREATE] should create a local item', (done)->
+    describe '[event system]', ->
 
-          browser.get "http://localhost:8080/", ()->
+      it 'i should write this test', (done)->
+          # should.not.exist err
+          done()
 
-            todo_title = "new todo"
+    describe '[key-> value storage]', ->
 
-            browser.elementById 'new-todo', (err, el) ->
+      it 'i should write this test', (done)->
+          # should.not.exist err
+          done()
 
-              browser.type el, todo_title, (err)->
+    describe '[include/extend]', ->
 
-                browser.type el, SPECIAL_KEYS['Enter'], (err)->
-
-                  browser.eval "window.Todo.read(0).get('title')", (err, title)->
-
-                    should.not.exist err
-                    should.equal title, todo_title
-
-                    done()
-
-
+      it 'i should write this test', (done)->
+          # should.not.exist err
+          done()
