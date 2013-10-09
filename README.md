@@ -1,8 +1,7 @@
-# The Model
+# The Pivot
 
-Model layer for [Theoricus](https://github.com/theoricus/theoricus) framework.
+Simple event system and key->value storage
 
-[![Stories in Ready](https://badge.waffle.io/theoricus/the-model.png)](http://waffle.io/theoricus/the-model)  
 
 [![Build Status](https://travis-ci.org/theoricus/the-model.png?branch=master)](https://travis-ci.org/theoricus/the-model) [![Coverage Status](https://coveralls.io/repos/theoricus/the-model/badge.png)](https://coveralls.io/r/theoricus/the-model) [![Dependency Status](https://gemnasium.com/theoricus/the-model.png)](https://gemnasium.com/theoricus/the-model)
 
