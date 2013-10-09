@@ -3,7 +3,10 @@ coffee = require 'coffee-script'
 
 exports.test = ( pivot ) ->
 
-  describe '[general]', ->
+  foofunk  = ->
+  listener = {}
+
+  describe '[testing pivot]', ->
 
     describe '[key-> value storage]', ->
 
@@ -19,12 +22,25 @@ exports.test = ( pivot ) ->
 
           done()
 
-    # describe '[event system]', ->
+    describe '[event system]', ->
 
-    #   it 'i should write this test', (done)->
-    #       # should.not.exist err
-    #       done()
+      it 'it should register an event', (done) ->
 
+          pivot.on 'event', ->
+          done()
+
+      it 'it should propagate an event', (done)->
+
+          pivot.on 'changed:name', foofunk
+          pivot.on 'changed:name', -> done()
+
+          pivot.trigger 'changed:name', 'foo'
+
+      it 'unregister event', (done)->
+
+          pivot.off( 'changed:name', foofunk ).should.equal true
+
+          done()
 
 
     # describe '[include/extend]', ->

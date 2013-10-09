@@ -23,41 +23,29 @@ Pivot = require 'app/components/events/pivot'
 
 pivot = new Pivot
 
+
+
 # Store and Retrieve a value
 
 pivot.set 'name', 'foo'
 pivot.get 'name' 			# should be foo
 
-# Listening to an event
 
-pivot.set 'name', 'hems'      # will set name to hems and propagate
 
-pivot.set 'name', 'david'     # will set name to david and propagate
+# Listening and unlistening to an event
 
-pivot.set 'name', 'david'     # won't propgate since the value is the same as the value stored
+set_name = ( name ) -> console.log "set_name is #{name}"
 
-pivot.trigger 'name', 'david' # trigger will propgate regardless of being the same value as stored
+pivot.on 'changed:name', set_name
 
-pivot.get 'name'              # returns last stored stored/propagated value for this event
+pivot.trigger 'changed:name', 'foo'
 
-console.log listener.value    # return last propagated value from this listener
+pivot.off 'changed:name', set_name
 
-listener.set 'hems'           # set value for key "name", therefore propagating this value again
 
-listener.off()                # will unregister the event
 
-listener.set 'david'          # the event wont receive the call
+# Using binds
 
-listener.on()                 # will register the event again
-
-listener.set 'stefano'        # event will receive the call
-```
-
-#
-### using binds
-#
-
-```
 pivot.set 'name', 'hems'
 
 set_name = ( name ) -> console.log "got name #{name}"
@@ -67,8 +55,28 @@ pivot.bind 'name', set_name # will trigger intantly and when this value change
 pivot.set 'name', 'hems' # won't trigger cause its a repeated value
 
 pivot.set 'name', 'david' # triggers!
-```
 
-#
-### include / extend
+
+
+##WIP
+
+
+
+# Using the listener object itself
+
+listener = pivot.on 'name', ( name )
+
+set_name = ( name ) -> console.log "set_name is #{name}"
+
+listener = pivot.on 'changed:name', set_name  # will set name to hems and propagate
+
+listener.trigger 'foo'
+
+listener.off()
+
+
+
+# include / extend
+
+```
 #
