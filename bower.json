@@ -1,6 +1,6 @@
 {
   "name": "the-pivot",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Henrique Matias <hems.inlet@gmail.com>",
   "contributors": [
     "Anderson Arboleya <anderson@arboleya.me>",
@@ -21,6 +21,5 @@
     "test",
     "src"
   ],
-  "dependencies": {
-  }
+  "dependencies": {}
 }
