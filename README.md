@@ -3,7 +3,7 @@
 Simple event system and key->value storage
 
 
-[![Build Status](https://travis-ci.org/hems/the-pivot.png?branch=master)](https://travis-ci.org/theoricus/the-model) [![Coverage Status](https://coveralls.io/repos/theoricus/the-model/badge.png)](https://coveralls.io/r/theoricus/the-model) [![Dependency Status](https://gemnasium.com/hems/the-pivot.png)](https://gemnasium.com/theoricus/the-model)
+[![Build Status](https://travis-ci.org/hems/the-pivot.png?branch=master)](https://travis-ci.org/theoricus/the-model) [![Coverage Status](https://coveralls.io/repos/hems/the-pivot/badge.png)](https://coveralls.io/r/theoricus/the-model) [![Dependency Status](https://gemnasium.com/hems/the-pivot.png)](https://gemnasium.com/theoricus/the-model)
 
 <!-- Uncomment this block after first public release in NPM
 [![NPM version](https://badge.fury.io/js/theoricus.png)](http://badge.fury.io/js/theoricus)
