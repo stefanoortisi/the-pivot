@@ -5,7 +5,7 @@ https://github.com/jeromeetienne/microevent.js
 
 Item = require './pivot_item'
 
-module.exports = class Pivot
+class Pivot
 
 
   _events: null
