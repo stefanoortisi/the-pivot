@@ -19,7 +19,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "http://github.com/theoricus/the-pivot"
+    "url": "http://github.com/hems/the-pivot"
   },
   "engines": {
     "node": ">= 0.10"

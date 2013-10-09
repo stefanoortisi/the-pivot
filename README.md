@@ -21,7 +21,7 @@ Simple event system and key->value storage
   - get( 'key' )             # retrieves a 'value'
 
  3. Simple binding
-  - bind( 'key', funktion )  # will be called instantly and when the value changes
+  - bind( 'key', funktion )  # funktion will be called instantly and when the value changes
 
 ```
 
