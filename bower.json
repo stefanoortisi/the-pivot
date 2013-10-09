@@ -1,0 +1,26 @@
+{
+  "name": "the-pivot",
+  "version": "0.1.0",
+  "author": "Henrique Matias <hems.inlet@gmail.com>",
+  "contributors": [
+    "Anderson Arboleya <anderson@arboleya.me>",
+    "Giulian Drimba <giuliandrimba@gmail.com>"
+  ],
+  "description": "Simple event system and key->value storage",
+  "main": "lib/index.js",
+  "keywords": [
+    "coffeescript",
+    "theoricus",
+    "pivot"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "src"
+  ],
+  "dependencies": {
+  }
+}

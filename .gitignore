@@ -1,0 +1,9 @@
+node_modules
+bower_components
+.DS_Store
+
+test/coverage
+test/services
+test/fixtures/app/public/__split__
+test/fixtures/app/public/app.css
+test/fixtures/app/public/app.js

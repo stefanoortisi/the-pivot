@@ -1,0 +1,37 @@
+{
+  "name": "the-pivot",
+  "version": "0.1.0",
+  "author": "Henrique Matias <hems.inlet@gmail.com>",
+  "contributors": [
+    "Anderson Arboleya <anderson@arboleya.me>",
+    "Giulian Drimba <giuliandrimba@gmail.com>"
+  ],
+  "description": "Simple event system and key->value storage",
+  "keywords": [
+    "coffeescript",
+    "theoricus",
+    "pivot"
+  ],
+  "main": "lib",
+  "dirs": "src",
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/theoricus/the-pivot"
+  },
+  "engines": {
+    "node": ">= 0.10"
+  },
+  "dependencies": {
+    
+  },
+  "devDependencies": {
+    "chai": "1.7.x",
+    "mocha": "1.12.x",
+    "fs-util": "0.3.x",
+    "coffee-script": "1.6.x",
+    "polvo": "0.5.x"
+  }
+}
