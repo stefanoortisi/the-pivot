@@ -20,6 +20,9 @@ Simple event system and key->value storage
   - set( 'key', 'value' )    # stores a 'value'
   - get( 'key' )             # retrieves a 'value'
 
+ 3. Simple binding
+  - bind( 'key', funktion )  # will be called instantly and when the value changes
+
 ```
 
 # create an instance of pivot
