@@ -9,148 +9,56 @@ Simple event system and key->value storage
 [![NPM version](https://badge.fury.io/js/theoricus.png)](http://badge.fury.io/js/theoricus)
 -->
 
-# Usage Drafts
-
-Simple draft demonstrating how this should work.
-
-> Attention, is a **WIP**! Do not use it yet.
-
 ## Main concept
 
- 1. `Sync` calls **never** touch database, everything is local
- 1. `Async` calls **always** touches database, everything is remote and local
- 1. Some methods are `static` only, others are `static` and `local` (instance)
+ 1. Simple event dispatcher / listener
+ 2. Simple key-> value storage
 
-The difference is the passed callback that may exist or not.
 
-## Model
+# Usage Drafts
 
-Configuring your model.
+#
+# Propagating events, storing and retrieving data
+#
 
-````coffeescript
-# app/models/user
-class User extends AppModel
-  
-  # general config method
-  @config
-    
-    # url ending points
-    urls:
-      create: '/users.json'
-      read: '/users/:id.json'
-      update: '/users/:id.json'
-      delete: '/users/:id.json'
-      all: '/users.json'
-      find: '/users/find.json'
-    
-    # properties and validation methods
-    keys:
-      name: String
-      age: (val)-> val >= 18 # validates if user is of age
-    
-    # default name for id property, the default is `id`
-    id: 'id'
 
-    # you may want to change that, mongodb for instance uses `_id`
-    # id: '_id'
-````
+Pivot = require 'app/components/events/pivot'
 
-## Controller
+pivot = new Pivot
 
-Using it inside a controller (or anywhere else).
+listener = pivot.on 'name', ( name ) -> console.log name
 
-````coffeescript
-#app/controllers/users
+pivot.set 'name', 'hems'      # will set name to hems and propagate
+pivot.set 'name', 'david'     # will set name to david and propagate
+pivot.set 'name', 'david'     # won't propgate since the value is the same as the value stored
+pivot.trigger 'name', 'david' # trigger will propgate regardless of being the same value as stored
+pivot.get 'name'              # returns last stored stored/propagated value for this event
 
-User = require 'app/models/user'
+console.log listener.value    # return last propagated value from this listener
+listener.set 'hems'           # set value for key "name", therefore propagating this value again
+listener.off()                # will unregister the event
+listener.set 'david'          # the event wont receive the call
+listener.on()                 # will register the event again
+listener.set 'stefano'        # event will receive the call
 
-class Users extends AppController
 
-  # CREATE (static)
-  # ----------------------------------------------------------------------------
+#
+# using binds
+#
 
-  # sync
-  record = User.create name: 'foo', age: 20
+pivot.set 'name', 'hems'
 
-  # async
-  User.create name: 'foo', age:20, (err, record)->
-    if err?
-      console.log 'err', err
-    else
-      console.log 'record created locally and remotely'
-      console.log 'record', record
+set_name = ( name ) -> console.log "got name #{name}"
 
-  # READ (static)
-  # ----------------------------------------------------------------------------
+pivot.bind 'name', set_name # will trigger intantly and when this value change
 
-  # sync
-  record = User.read 0
+pivot.set 'name', 'hems' # won't trigger cause its a repeated value
 
-  # async
-  User.read 0, (err, record)->
-    if err?
-      console.log 'err', err
-    else
-      console.log 'record read remotely'
-      console.log 'record', record
+pivot.set 'name', 'david' # triggers!
 
-  # UPDATE (static and instance)
-  # ----------------------------------------------------------------------------
 
-  # sync
-  User.update 0, name: 'bar', age: 30
-  record.update name: 'bar', age: 30
+#
+# include / extend
+#
 
-  # async
-  User.update 0, name: 'bar', age: 30, (err, record)-> #...
-  record.update name: 'bar', age: 30, (err, record)->
-    if err?
-      console.log 'err', err
-    else
-      console.log 'record updated locally and remotely'
-      console.log 'record', record
-
-  # DELETE (static / instance)
-  # ----------------------------------------------------------------------------
-
-  # sync
-  User.delete 0
-  record.delete()
-
-  # async
-  User.delete 0, (err, record)-> # ...
-  record.delete (err, record)->
-    if err?
-      console.log 'err', err
-    else
-      console.log 'record deleted locally and remotely'
-      console.log 'record', record
-
-  # ALL (static)
-  # ----------------------------------------------------------------------------
-
-  # sync
-  records = User.all()
-
-  # async
-  User.all (err, records)->
-    if err?
-      console.log 'err', err
-    else
-      console.log 'records fetched remotely and saved locally, returning all'
-      console.log 'records', records
-
-  # FIND (static)
-  # ----------------------------------------------------------------------------
-
-  # sync
-  records = User.find name: 'foo'
-
-  # async
-  User.find name: 'foo', (err, records)->
-    if err?
-      console.log 'err', err
-    else
-      console.log 'records fetched remotely and saved locally, finding in both'
-      console.log 'records', records
-````
+##
