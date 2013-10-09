@@ -1,5 +1,6 @@
 POLVO=node_modules/polvo/bin/polvo
 CS=node_modules/coffee-script/bin/coffee
+MOCHA=node_modules/mocha/bin/mocha
 
 setup:
 	npm install
@@ -43,4 +44,8 @@ re-publish:
 # ------------------------------------------------------------------------------
 
 test: build
-	@$(CS) test/runner.coffee
+	@$(MOCHA) --compilers coffee:coffee-script \
+		--ui bdd \
+		--reporter spec \
+		--timeout 600000 \
+		test/runner.coffee --env='local'
