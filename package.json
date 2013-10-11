@@ -30,7 +30,6 @@
     "mocha": "1.12.x",
     "fs-util": "0.3.x",
     "coffee-script": "1.6.x",
-    "polvo": "0.5.x",
     "mversion": "0.2.0",
     "coveralls": "2.2.x"
   }

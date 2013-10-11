@@ -1,4 +1,3 @@
-POLVO=node_modules/polvo/bin/polvo
 CS=node_modules/coffee-script/bin/coffee
 MOCHA=node_modules/mocha/bin/mocha
 
