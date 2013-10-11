@@ -112,9 +112,9 @@ module.exports = class Pivot
     return @
 
 # exporting
-if exports and module and module.exports
+if exports? and module and module.exports
   module.exports = Pivot
-else if define and define.amd
+else if define? and define.amd
   define -> Pivot
 else if window
   (window.the or= {}).pivot = Pivot
