@@ -11,4 +11,4 @@ pivot = new Pivot()
 for file in files
   
   test = ( require file ).test
-  test(pivot)
+  test( pivot )
